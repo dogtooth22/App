@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Mi Aplicación</string>
+    <string name="aplicación">Mi Aplicación</string>
     <string name="hola_mundo">Hola Mundo!</string>
-    <string name="button">Botón</string>
+    <string name="button1">Botón</string>
+    <string name="inicio">Inicio</string>
+    <string name="secundaria">Acción del Botón</string>
+    <string name="textoSecundario">Página Secundaria!</string>
 </resources>
