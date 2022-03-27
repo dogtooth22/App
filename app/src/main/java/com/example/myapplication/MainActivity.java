@@ -14,12 +14,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = findViewById(R.id.button);
+        /*final Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
-        });
+        });*/
         //button.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SecondActivity.class)));
     }
 }
