@@ -8,7 +8,7 @@
         android:label="@string/aplicación"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication" >
+        android:theme="@style/Theme.MyApplication">
 
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -23,20 +23,20 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCA2krG7_Y4FRK3oJtNyhkwezHpmOuHjSs" />
+            android:value="AIzaSyCA2krG7_Y4FRK3oJtNyhkwezHpmOuHjSs"/>
 
         <activity
             android:name=".MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"/>
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashTheme" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -46,7 +46,7 @@
         <activity
             android:name=".SecondActivity"
             android:exported="true"
-            android:label="@string/secundaria" >
+            android:label="@string/secundaria">
         </activity>
     </application>
 
