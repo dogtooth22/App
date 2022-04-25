@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication" >
+    package="com.example.myapplication">
+
+    <!-- Recommended for Android 9 (API level 28) and lower. -->
+    <!-- Required for Android 10 (API level 29) and higher. -->
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps"/>
+
 
     <application
         android:allowBackup="true"
@@ -9,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+
+        <!-- Recommended for Android 9 (API level 28) and lower. -->
+        <!-- Required for Android 10 (API level 29) and higher. -->
 
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -21,14 +33,11 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCA2krG7_Y4FRK3oJtNyhkwezHpmOuHjSs"/>
 
-        <activity
-            android:name=".MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps"/>
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
