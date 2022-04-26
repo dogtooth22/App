@@ -6,6 +6,4 @@
     <string name="secundaria">Acción del Botón</string>
     <string name="textoSecundario">Página Secundaria!</string>
     <string name="title_activity_maps">Mapa</string>
-    <string name="button">Button</string>
-    <string name="textview">TextView</string>
 </resources>

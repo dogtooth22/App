@@ -4,16 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -22,6 +27,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
 
-    Button btnGPS;
+    ImageButton btnGPS;
     TextView textView;
 
     @Override
@@ -48,25 +54,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View view) {
                 LocationManager locationManager = (LocationManager) MainActivity.this.getSystemService(Context.LOCATION_SERVICE);
                 LocationListener locationListener = new LocationListener() {
+                    @SuppressLint("MissingPermission")
                     @Override
                     public void onLocationChanged(@NonNull Location location) {
                         LatLng lugar = new LatLng(location.getLatitude(), location.getLongitude());
                         /*mMap.addMarker(new MarkerOptions()
                                 .position(lugar)
                                 .title("Marker in Sydney"));*/
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(lugar));
-                        mMap.setMyLocationEnabled();
-                        mMap.animateCamera( CameraUpdateFactory.zoomTo( 16.0f ) );
+                        mMap.moveCamera(CameraUpdateFactory
+                                .newLatLngZoom(lugar, 16.0f));
+                        mMap.setMyLocationEnabled(true);
                     }
 
-                    public void onStatusChanged(String provider, int status, Bundle extras) {
+                    /*public void onStatusChanged(String provider, int status, Bundle extras) {
                     }
 
                     public void onProviderEnabled(String provider) {
                     }
 
                     public void onProviderDisabled(String provider) {
-                    }
+                    }*/
                 };
 
                 int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
@@ -77,10 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
         if(permissionCheck == PackageManager.PERMISSION_DENIED){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION))
-            {
-
-            }
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){}
             else{
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }
@@ -96,10 +100,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        mMap = googleMap; boolean success;
+        //success = googleMap.setMapStyle(new MapStyleOptions(getResources().getString(R.string.style_json)));
+        //success = googleMap.setMapStyle(null);
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, -71);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            //success = googleMap.setMapStyle(new MapStyleOptions(getResources().getString(R.string.style_json)));
+        }
+        else {
+        }
+            //setTheme(R.style.dayTheme);
+            //success = googleMap.setMapStyle(null);
     }
 }
