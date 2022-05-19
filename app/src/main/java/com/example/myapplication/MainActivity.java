@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -19,17 +18,26 @@ import androidx.core.content.ContextCompat;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLocationButtonClickListener,
-        GoogleMap.OnMyLocationClickListener,
+        GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener,
         OnMapReadyCallback {
 
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
     private GoogleMap mMap;
-
-    ImageButton btnGPS;
-    TextView textView;
+    FloatingActionButton FAB;
+    List<Marker> markers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,24 +49,59 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
-        /*final Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, SecondActivity.class));
-            }
-        });*/
-        //button.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SecondActivity.class)));
+        FAB = findViewById(R.id.pasear);
+
     }
     @SuppressLint("MissingPermission")
     @Override
-    public void onMapReady(GoogleMap map) {
+    public void onMapReady(@NonNull GoogleMap map) {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED) {
-            boolean success = map.setMapStyle(new MapStyleOptions(getResources().getString(R.string.dia_json)));
+            map.setMapStyle(new MapStyleOptions(getResources().getString(R.string.dia_json)));
             map.setMyLocationEnabled(true);
             map.getUiSettings().setMyLocationButtonEnabled(true);
+
+            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+            map.setOnMarkerClickListener(this);
+
+            markers = new ArrayList<Marker>();
+            Random r = new Random();
+            int min = 1; int max = 10;
+            int randomInt = (int) Math.floor(Math.random()*(max - min + 1) + min);
+            double upper = 0.002; double lower = -0.002;
+            for(int i = 0; i < randomInt; i++){
+                double randomLat = upper + (upper - lower) * r.nextDouble(); double randomLng = upper + (upper - lower) * r.nextDouble();
+                LatLng lugar = new LatLng(location.getLatitude() + randomLat, location.getLongitude() + randomLng);
+                Marker marker = map.addMarker(new MarkerOptions().position(lugar)); marker.setTag(0);
+                markers.add(marker);
+            }
+            FAB.setOnClickListener(v -> {
+                for(int i = 0; i < 5; i++){
+                    ArrayList<Marker> newMarkers = new ArrayList<Marker>();
+                    for (Marker marker : markers) {
+                        LatLng posicion = marker.getPosition();
+                        double caminataUpper = 0.000005;
+                        double caminataLower = -0.000005;
+                        double caminataRndLat = caminataUpper + (caminataUpper - caminataLower) * r.nextDouble();
+                        double caminataRndLng = caminataUpper + (caminataUpper - caminataLower) * r.nextDouble();
+                        LatLng caminata = new LatLng(posicion.latitude + caminataRndLat, posicion.longitude + caminataRndLng);
+                        Marker nuevoMarker = map.addMarker(new MarkerOptions().position(caminata)); nuevoMarker.setTag(0);
+                        marker.remove();
+                        newMarkers.add(nuevoMarker);
+                    }
+                    markers = new ArrayList<Marker>();
+                    markers = newMarkers;
+                }
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
         } else {
             ActivityCompat.requestPermissions(this, new String[] {
                             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -75,5 +118,24 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     @Override
     public void onMyLocationClick(@NonNull Location location) {
 
+    }
+
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+
+        // Retrieve the data from the marker.
+        Integer clickCount = (Integer) marker.getTag();
+
+        // Check if a click count was set, then display the click count.
+        if (clickCount != null) {
+            clickCount = clickCount + 1;
+            marker.setTag(clickCount);
+            Log.i("Marker", String.valueOf(marker.getPosition()));
+        }
+
+        // Return false to indicate that we have not consumed the event and that we wish
+        // for the default behavior to occur (which is for the camera to move such that the
+        // marker is centered and for the marker's info window to open, if it has one).
+        return false;
     }
 }
