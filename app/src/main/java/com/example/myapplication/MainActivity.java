@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
     private GoogleMap mMap;
+    public static final String EXTRA_MESSAGE = "com.example.myapplication.MESSAGE";
     FloatingActionButton FAB;
     List<Marker> markers;
 
@@ -76,10 +79,11 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             for(int i = 0; i < randomInt; i++){
                 double randomLat = upper + (upper - lower) * r.nextDouble(); double randomLng = upper + (upper - lower) * r.nextDouble();
                 LatLng lugar = new LatLng(location.getLatitude() + randomLat, location.getLongitude() + randomLng);
-                Marker marker = map.addMarker(new MarkerOptions().position(lugar)); marker.setTag(0);
+                Marker marker = map.addMarker(new MarkerOptions().position(lugar)); marker.setTag("Marcador en: " + lugar.latitude + ", " + lugar.longitude);
                 markers.add(marker);
             }
-            FAB.setOnClickListener(v -> {
+
+            /*FAB.setOnClickListener(v -> {
                 for(int i = 0; i < 5; i++){
                     ArrayList<Marker> newMarkers = new ArrayList<Marker>();
                     for (Marker marker : markers) {
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            });
+            });*/
         } else {
             ActivityCompat.requestPermissions(this, new String[] {
                             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -122,16 +126,10 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
     @Override
     public boolean onMarkerClick(final Marker marker) {
-
-        // Retrieve the data from the marker.
-        Integer clickCount = (Integer) marker.getTag();
-
-        // Check if a click count was set, then display the click count.
-        if (clickCount != null) {
-            clickCount = clickCount + 1;
-            marker.setTag(clickCount);
-            Log.i("Marker", String.valueOf(marker.getPosition()));
-        }
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        String message = marker.getId();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
 
         // Return false to indicate that we have not consumed the event and that we wish
         // for the default behavior to occur (which is for the camera to move such that the

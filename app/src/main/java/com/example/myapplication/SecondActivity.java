@@ -3,7 +3,10 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 public class SecondActivity extends AppCompatActivity {
@@ -12,8 +15,10 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate((savedInstanceState));
         setContentView(R.layout.second_activity);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
+        //Log.i("Mensaje", message);
 
     }
     @Override

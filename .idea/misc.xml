@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.202" />
+        <entry key="..\:/Users/Renato/Documents/App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.333" />
+        <entry key="..\:/Users/Renato/Documents/App/app/src/main/res/drawable/ic_baseline_my_location_24.xml" value="0.162" />
+        <entry key="..\:/Users/Renato/Documents/App/app/src/main/res/drawable/my_location-48px.xml" value="0.162" />
+        <entry key="..\:/Users/Renato/Documents/App/app/src/main/res/drawable/splash_background.xml" value="0.148" />
+        <entry key="..\:/Users/Renato/Documents/App/app/src/main/res/layout/activity_main.xml" value="0.24819102749638206" />
+        <entry key="..\:/Users/Renato/Documents/App/app/src/main/res/layout/activity_maps.xml" value="0.264" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_maps.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/second_activity.xml" value="0.25" />
@@ -15,5 +20,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="My_Application.app" />
+      </set>
+    </option>
   </component>
 </project>
