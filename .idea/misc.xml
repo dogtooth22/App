@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14" />
+        <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/drawable/google_logo.xml" value="0.1935" />
+        <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/drawable/health_icon.xml" value="0.1935" />
+        <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/drawable/person.xml" value="0.1935" />
+        <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/layout/activity_pet_profile.xml" value="0.25" />
+        <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/layout/fragment_basicos.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/layout/fragment_salud.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ariel/OneDrive/USM/2022-1/Apps Moviles/BuddyWalk/App/app/src/main/res/mipmap-anydpi-v26/buddywalk_icons.xml" value="0.14" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.202" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_main.xml" value="0.25" />

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_onPrimary"
+    tools:context=".PetProfileActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:text = "@string/PerfilMastcota"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/md_theme_light_primary"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:layout_height="150dp"
+            android:src="@drawable/cat_profile_icon"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/md_theme_light_onPrimary">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabbasicos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Basicos"
+                android:icon="@drawable/pet_icon"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabsalud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Salud"
+                android:icon="@drawable/health_icon"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
