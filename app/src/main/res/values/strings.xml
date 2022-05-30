@@ -1,5 +1,5 @@
 <resources>
-    <string name="aplicación">BuddyWalk</string>
+    <string name="aplicacion">BuddyWalk</string>
     <string name="hola_mundo">Hola Mundo!</string>
     <string name="button1">Botón</string>
     <string name="inicio">Inicio</string>

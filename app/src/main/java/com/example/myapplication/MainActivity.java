@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
             map.setOnMarkerClickListener(this);
+            map.getUiSettings().setMapToolbarEnabled(false);
 
             markers = new ArrayList<Marker>();
             Random r = new Random();
@@ -112,6 +113,13 @@ public class MainActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
                             Manifest.permission.ACCESS_COARSE_LOCATION },
                     TAG_CODE_PERMISSION_LOCATION);
         }
+    }
+
+    private boolean checkPermission(){
+        int result = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION);
+
+        return result == PackageManager.PERMISSION_GRANTED;
     }
 
     @Override
