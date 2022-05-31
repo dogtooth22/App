@@ -9,9 +9,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.grimlin31.buddywalkowner.BuddyWalkerAppCompactActivity;
+import com.grimlin31.buddywalkowner.LoginActivity;
 import com.grimlin31.buddywalkowner.R;
 
-public class UserForm extends AppCompatActivity {
+public class UserForm extends BuddyWalkerAppCompactActivity {
 
     private Spinner petSelector;
 
@@ -27,21 +29,12 @@ public class UserForm extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        View decorView = getWindow().getDecorView();
-        // Hide the status bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-        // Remember that you should never show the action bar if the
-        // status bar is hidden, so hide that too if necessary.
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
     }
 
     private void setSpinner(int idSelector) {
         this.petSelector = findViewById(idSelector);
 
-        String[] pets = {"Cat", "Dog"};
+        String[] pets = {"Select One","Cat", "Dog"};
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
                 this,
@@ -52,5 +45,9 @@ public class UserForm extends AppCompatActivity {
 
         this.petSelector.setAdapter(adapter);
     }
+    public void toLogin(View view)  {
+        super.nextActivity(LoginActivity.class);
+    }
+
 
 }
