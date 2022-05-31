@@ -3,7 +3,10 @@ package com.grimlin31.buddywalkowner;
 import android.os.Bundle;
 import android.view.View;
 
+import com.grimlin31.buddywalkowner.parentClass.BuddyWalkerAppCompactActivity;
 import com.grimlin31.buddywalkowner.register.RegisterActivity;
+
+import java.util.TimerTask;
 
 public class LoginActivity extends BuddyWalkerAppCompactActivity {
 
