@@ -1,20 +1,36 @@
 <resources>
     <string name="app_name">BuddyWalkOwner</string>
+
+    <!--Messages-->
     <string name="login_title_view">Already Have an Account?</string>
     <string name="register_message">Don\'t Have an Account?</string>
 
+    <!--Titles-->
     <string name="login">Login</string>
+    <string name="register">Register</string>
+
     <string name="to_continue">to Continue</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
+
+    <!--Placeholder forms-->
     <string name="userName">Username</string>
-    <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="pass">Password</string>
     <string name="passConfirm">Confirm Password</string>
+
+    <string name="name">Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+
+    <!--Others-->
     <string name="or">OR</string>
     <string name="google_sign_in">Sign in with Google</string>
     <string name="forgotPass">FORGOT PASSWORD?</string>
     <string name="new_user">New User?</string>
     <string name="register_now">Register Now</string>
+    <string name="next">Continue</string>
+
+
 </resources>
