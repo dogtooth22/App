@@ -31,7 +31,7 @@ public class BuddyWalkerAppCompactActivity extends AppCompatActivity {
         actionBar.hide();
     }
 
-    protected void nextActivity( Class<?> cls) {
+    protected void nextActivity(Class<?> cls) {
         Intent nextActivity= new Intent(this, cls);
         startActivity(nextActivity);
     }
