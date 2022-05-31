@@ -9,12 +9,31 @@
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_maps.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/second_activity.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/back_figure_form.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/cat.xml" value="0.1785" />
+        <entry key="app/src/main/res/drawable/dog.xml" value="0.1785" />
+        <entry key="app/src/main/res/drawable/drop_array.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/location.xml" value="0.2255" />
+        <entry key="app/src/main/res/drawable/lock.xml" value="0.2255" />
         <entry key="app/src/main/res/drawable/login_wave.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/person.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/person_color.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/pet.xml" value="0.2255" />
+        <entry key="app/src/main/res/drawable/phone.xml" value="0.2255" />
+        <entry key="app/src/main/res/drawable/register_wave.xml" value="0.183" />
         <entry key="app/src/main/res/drawable/round_button.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/round_button_google.xml" value="0.27" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.34010416666666665" />
+        <entry key="app/src/main/res/drawable/round_inputs.xml" value="0.2255" />
+        <entry key="app/src/main/res/drawable/selector.xml" value="0.2845" />
+        <entry key="app/src/main/res/drawable/spinner_border.xml" value="0.2255" />
+        <entry key="app/src/main/res/drawable/wave.xml" value="0.183" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27445652173913043" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_user_form.xml" value="0.34631500244140634" />
+        <entry key="app/src/main/res/layout/item_spinner.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/layout/second_activity.xml" value="0.17604166666666668" />
+        <entry key="app/src/main/res/layout/simple_spinner_dropdown.xml" value="0.16979166666666667" />
       </map>
     </option>
   </component>
@@ -23,5 +42,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

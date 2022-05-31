@@ -39,13 +39,24 @@
                     android:textColor="@color/md_theme_light_onPrimary"
                     android:textSize="50dp" />
 
-                <TextView
-                    android:layout_marginLeft="24dp"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/md_theme_light_onPrimary"
-                    android:textSize="20dp"
-                    android:text="@string/sign_in"/>
+                    android:layout_marginLeft="24dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_theme_light_onPrimary"
+                        android:textSize="20dp"
+                        android:text="@string/sign_in"/>
+                    <TextView
+                        android:paddingLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_theme_light_onPrimary"
+                        android:textSize="20dp"
+                        android:text="@string/to_continue"/>
+                </LinearLayout>
 
             </LinearLayout>
 

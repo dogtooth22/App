@@ -1,21 +1,22 @@
-package com.grimlin31.buddywalkowner;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+package com.grimlin31.buddywalkowner.register;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.grimlin31.buddywalkowner.register.RegisterActivity;
-import com.grimlin31.buddywalkowner.register.UserForm;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+import com.grimlin31.buddywalkowner.R;
+
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
+
     }
 
     @Override
@@ -32,8 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         actionBar.hide();
     }
 
-    public void toRegister(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+    public void nextFormDataUser() {
+        Intent nextForm = new Intent(this, UserForm.class);
+        startActivity(nextForm);
     }
+
 }
