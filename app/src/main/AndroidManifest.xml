@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".register.UserForm"/>
-        <activity android:name=".register.RegisterActivity"/>
+        <activity android:name=".register.RegisterActivity"
+            android:parentActivityName=".LoginActivity"/>
     </application>
 
 </manifest>

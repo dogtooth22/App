@@ -13,9 +13,11 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight=".5">
 
 
             <TextView
@@ -143,17 +145,35 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
 
-                <Button
-                    android:onClick="nextFormDataUser"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/round_button"
-                    android:textStyle="bold"
-                    android:text="@string/next">
-                </Button>
+                    android:orientation="horizontal">
+                    <Button
+                        android:onClick="toLogin"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/round_button"
+                        android:textStyle="bold"
+                        android:text="@string/cancel">
+                    </Button>
+                    <Button
+                        android:onClick="nextFormDataUser"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_button"
+                        android:textStyle="bold"
+                        android:text="@string/next">
+                    </Button>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

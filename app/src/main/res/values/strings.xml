@@ -12,6 +12,7 @@
     <string name="to_continue">to Continue</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
+    <string name="more_info">We need a little\nmore information</string>
 
     <!--Placeholder forms-->
     <string name="userName">Username</string>
@@ -31,6 +32,8 @@
     <string name="new_user">New User?</string>
     <string name="register_now">Register Now</string>
     <string name="next">Continue</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>
