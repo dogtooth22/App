@@ -15,7 +15,7 @@ public class SplashView extends BuddyWalkerAppCompactActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        TimerTask tarea = new TimerTask() {
+        TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashView.this, LoginActivity.class);
@@ -25,8 +25,8 @@ public class SplashView extends BuddyWalkerAppCompactActivity {
 
         };
 
-        Timer tiempo = new Timer();
-        tiempo.schedule(tarea, 5000);
+        Timer time = new Timer();
+        time.schedule(task, 5000);
 
     }
 }
