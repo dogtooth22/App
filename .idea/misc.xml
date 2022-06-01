@@ -30,7 +30,8 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.38146209716796875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27445652173913043" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_user_form.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_user_form.xml" value="0.4123626708984375" />
         <entry key="app/src/main/res/layout/item_spinner.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/layout/second_activity.xml" value="0.17604166666666668" />
         <entry key="app/src/main/res/layout/simple_spinner_dropdown.xml" value="0.16979166666666667" />

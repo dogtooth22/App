@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.grimlin31.buddywalkowner.BuddyWalkerAppCompactActivity;
+import com.grimlin31.buddywalkowner.parentClass.BuddyWalkerAppCompactActivity;
 import com.grimlin31.buddywalkowner.LoginActivity;
 import com.grimlin31.buddywalkowner.R;
 
