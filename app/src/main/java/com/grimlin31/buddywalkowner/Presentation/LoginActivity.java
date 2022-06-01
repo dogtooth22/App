@@ -1,8 +1,9 @@
-package com.grimlin31.buddywalkowner;
+package com.grimlin31.buddywalkowner.Presentation;
 
 import android.os.Bundle;
 import android.view.View;
 
+import com.grimlin31.buddywalkowner.R;
 import com.grimlin31.buddywalkowner.parentClass.BuddyWalkerAppCompactActivity;
 import com.grimlin31.buddywalkowner.register.RegisterActivity;
 

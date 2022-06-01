@@ -8,7 +8,7 @@ import android.widget.Spinner;
 import androidx.annotation.Nullable;
 
 import com.grimlin31.buddywalkowner.parentClass.BuddyWalkerAppCompactActivity;
-import com.grimlin31.buddywalkowner.LoginActivity;
+import com.grimlin31.buddywalkowner.Presentation.LoginActivity;
 import com.grimlin31.buddywalkowner.R;
 
 public class UserForm extends BuddyWalkerAppCompactActivity {
