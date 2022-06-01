@@ -1,4 +1,4 @@
-package com.grimlin31.buddywalkowner;
+package com.grimlin31.buddywalkowner.parentClass;
 
 import android.content.Context;
 import android.content.Intent;

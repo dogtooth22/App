@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuddyWalkOwner">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Presentation.SplashView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Presentation.LoginActivity"/>
         <activity android:name=".register.UserForm"/>
-        <activity android:name=".register.RegisterActivity"
-            android:parentActivityName=".LoginActivity"/>
+        <activity android:name=".register.RegisterActivity"/>
     </application>
 
 </manifest>
