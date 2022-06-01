@@ -110,7 +110,7 @@
                     android:background="@drawable/round_inputs"
                     android:drawableLeft="@drawable/phone"
                     android:drawablePadding="16dp"
-                    android:hint="@string/passConfirm"
+                    android:hint="@string/phone"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="16dp" />
 
