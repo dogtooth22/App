@@ -19,7 +19,7 @@ public class SplashView extends BuddyWalkerAppCompactActivity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashView.this, LoginActivity.class);
+                Intent intent = new Intent(SplashView.this, OwnerHomeActivity.class);
                 startActivity(intent);
                 finish();
             }

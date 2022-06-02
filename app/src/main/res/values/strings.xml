@@ -35,5 +35,10 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
 
+    <!--Home-->
+    <string name="frame1">Paseos</string>
+    <string name="frame2">Search</string>
+    <string name="frame3">Profile</string>
+
 
 </resources>

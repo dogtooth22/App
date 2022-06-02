@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentContainer.SecondFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="35sp"
+            android:text="¡Buen dia!"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="23sp"
+            android:text="¿En qué te podemos ayudar hoy?"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:padding="30dp"
+                android:id="@+id/mascota1"
+                android:layout_weight="1"
+                android:src="@drawable/pet_icon"
+                android:background="@drawable/roundbutton"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:padding="30dp"
+                android:id="@+id/mascota2"
+                android:layout_weight="1"
+                android:src="@drawable/pet_icon"
+                android:background="@drawable/roundbutton"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:padding="30dp"
+                android:id="@+id/mascota3"
+                android:layout_weight="1"
+                android:src="@drawable/pet_icon"
+                android:background="@drawable/roundbutton"/>
+
+
+        </LinearLayout>
+
+        <com.google.android.gms.maps.MapView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"/>
+    </LinearLayout>
+
+
+
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/md_theme_light_primary"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="16dp"
+        />
+</FrameLayout>

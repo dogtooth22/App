@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.grimlin31.buddywalkowner">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/buddywalk_icons"
@@ -9,17 +14,24 @@
         android:roundIcon="@mipmap/buddywalk_icons_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuddyWalkOwner">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCA2krG7_Y4FRK3oJtNyhkwezHpmOuHjSs"/>
+
         <activity
             android:name=".Presentation.SplashView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presentation.LoginActivity"/>
-        <activity android:name=".register.UserForm"/>
-        <activity android:name=".register.RegisterActivity"/>
+        <activity android:name=".Presentation.LoginActivity" />
+        <activity android:name=".register.UserForm" />
+        <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".Presentation.OwnerHomeActivity"/>
     </application>
 
 </manifest>
