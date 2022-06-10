@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_primaryContainer"
+    tools:context=".main.ThirdActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/md_theme_light_primary"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/person" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/nombreUsuario"
+                android:textSize="25dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Editar datos" />
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ayuda" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="toLogout"
+            android:text="Log out" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="257dp"
+        android:layout_height="558dp"
+        android:layout_marginLeft="55dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:scaleType="fitEnd"
+        android:src="@drawable/buddy" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1379dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Bottom of the screen"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large">
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete Account"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>
