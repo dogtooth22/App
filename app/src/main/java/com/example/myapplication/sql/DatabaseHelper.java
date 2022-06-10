@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.myapplication.model.Pet;
 import com.example.myapplication.model.User;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_USERNAME = "user_username";
     private static final String COLUMN_USER_LATITUDE = "user_latitude";
     private static final String COLUMN_USER_LONGITUDE = "user_longitude";
+    private static final String COLUMN_USER_PETS = "user_pets";
 
     //SQL Queries
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "(" +
@@ -34,7 +36,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             COLUMN_USER_EMAIL + " TEXT, " +
             COLUMN_USER_PASSWORD + " TEXT," +
             COLUMN_USER_LATITUDE + " TEXT," +
-            COLUMN_USER_LONGITUDE + " TEXT" + ")";
+            COLUMN_USER_LONGITUDE + " TEXT," +
+            COLUMN_USER_PETS + " TEXT" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
 
@@ -67,6 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
         values.put(COLUMN_USER_LATITUDE, user.getLatitude());
         values.put(COLUMN_USER_LONGITUDE, user.getLongitude());
+        values.put(COLUMN_USER_PETS, user.getPets());
         // Inserting Row
         db.insert(TABLE_USER, null, values);
         db.close();
@@ -85,7 +89,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_USERNAME,
                 COLUMN_USER_PASSWORD,
                 COLUMN_USER_LATITUDE,
-                COLUMN_USER_LONGITUDE
+                COLUMN_USER_LONGITUDE,
+                COLUMN_USER_PETS
         };
         // sorting orders
         String sortOrder =
@@ -115,6 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 user.setUsername(cursor.getString(cursor.getColumnIndex(COLUMN_USER_USERNAME)));
                 user.setLatitude(cursor.getFloat(cursor.getColumnIndex(COLUMN_USER_LATITUDE)));
                 user.setLongitude(cursor.getFloat(cursor.getColumnIndex(COLUMN_USER_LONGITUDE)));
+                user.setString(cursor.getString(cursor.getColumnIndex(COLUMN_USER_STRING)));
                 // Adding user record to list
                 userList.add(user);
             } while (cursor.moveToNext());
@@ -137,6 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_USERNAME, user.getUsername());
         values.put(COLUMN_USER_LATITUDE, user.getLatitude());
         values.put(COLUMN_USER_LONGITUDE, user.getLongitude());
+        values.put(COLUMN_USER_STRING, user.getString());
         // updating row
         db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?",
                 new String[]{String.valueOf(user.getId())});

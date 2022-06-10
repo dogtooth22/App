@@ -15,7 +15,6 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -24,12 +23,8 @@ import com.example.myapplication.main.MainActivity;
 import com.example.myapplication.main.RiderMenu;
 import com.example.myapplication.main.SecondActivity;
 import com.example.myapplication.main.ThirdActivity;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.myapplication.SaveSharedPreferences.SavedSharedPreference;
@@ -43,7 +38,7 @@ public class OwnerHomeActivity extends AppCompatActivity implements GoogleMap.On
     SecondActivity secondActivity = new SecondActivity();
     ThirdActivity  thirdActivity = new ThirdActivity();
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
-    private String extra;
+    private String userIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +46,10 @@ public class OwnerHomeActivity extends AppCompatActivity implements GoogleMap.On
         setContentView(R.layout.activity_owner_home);
 
         Intent intent = getIntent();
-        extra = intent.getStringExtra("userIndex");
+        userIndex = intent.getStringExtra("userIndex");
 
         Bundle bundle = new Bundle();
-        bundle.putString("userIndex", extra);
+        bundle.putString("userIndex", userIndex);
         firstActivity.setArguments(bundle);
         thirdActivity.setArguments(bundle);
 
@@ -142,6 +137,7 @@ public class OwnerHomeActivity extends AppCompatActivity implements GoogleMap.On
         SavedSharedPreference.clearUserName(OwnerHomeActivity.this);
         FirebaseAuth.getInstance().signOut();
         finish();
+        System.exit(0);
     }
 
     // TODO creo que esto no es necesario

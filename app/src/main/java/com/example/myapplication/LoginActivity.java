@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /*@Override
+    @Override
     protected void onResume() {
         super.onResume();
 
@@ -63,12 +63,13 @@ public class LoginActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        if(SavedSharedPreference.getUserName(LoginActivity.this).length() != 0){
+        // Esto vuelve loca a la app no se pq
+        /*if(SavedSharedPreference.getUserName(LoginActivity.this).length() != 0){
             Intent gotoHome = new Intent(LoginActivity.this, OwnerHomeActivity.class);
             startActivity(gotoHome);
-        }
+        }*/
 
-    }*/
+    }
 
     @Override
     public void onStart() {
@@ -97,7 +98,6 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "signInWithCustomToken:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            // Log.i("Hola", user.getEmail()); Esto funciona
                             SavedSharedPreference.setUserName(LoginActivity.this, email.getText().toString());
                             updateUI(user);
                         } else {

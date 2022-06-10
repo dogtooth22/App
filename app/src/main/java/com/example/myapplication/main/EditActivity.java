@@ -39,21 +39,18 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
         editButton = findViewById(R.id.edit);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        Intent intent = getIntent();
+        userIndex = intent.getStringExtra("userIndex");
+        Log.i("userIndex", userIndex);
 
         editButton.setOnClickListener(view -> {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-            Query lastQuery = databaseReference.child("user").orderByKey();
+            ref = FirebaseDatabase.getInstance().getReference();
+            Query lastQuery = ref.child("user");
             lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot child: dataSnapshot.getChildren()) {
-                        if(user.getEmail().equals(child.child("email").getValue().toString())){
-                            userIndex = child.getKey();
-                            updateData(userIndex, child.child("password").getValue().toString());
-                        }
-
-                    }
+                public void onDataChange(DataSnapshot dataSnapshot){
+                    updateData(userIndex, dataSnapshot.child(userIndex).child("password").getValue().toString());
                 }
 
                 @Override
@@ -61,8 +58,6 @@ public class EditActivity extends AppCompatActivity {
                     // Handle possible errors.
                 }
             });
-            Intent gotoHome = new Intent(EditActivity.this, OwnerHomeActivity.class);
-            startActivity(gotoHome);
         });
     }
 
@@ -80,9 +75,14 @@ public class EditActivity extends AppCompatActivity {
         else if(!isValidEmailAddress(email.getText().toString())){
             Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
         }
+        else if(email.getText().toString().equals("") ||
+                username.getText().toString().equals("") ||
+                password.getText().toString().equals("") ||
+                password2.getText().toString().equals("")){
+            Toast.makeText(EditActivity.this, "Fill all cells!", Toast.LENGTH_SHORT).show();
+        }
         else {
-            database = FirebaseDatabase.getInstance();
-            ref = database.getReference();
+            ref = FirebaseDatabase.getInstance().getReference();
             String username_str = username.getText().toString();
             String mail = email.getText().toString();
             String pass = password.getText().toString();
@@ -97,11 +97,13 @@ public class EditActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            updateEmail();
+                            updateEmail(mail);
+                            Toast.makeText(EditActivity.this, "All changes were applied!", Toast.LENGTH_SHORT).show();
                             //updatePassword();
                         }
                     });
-
+            Intent gotoHome = new Intent(EditActivity.this, MainActivity.class);
+            startActivity(gotoHome);
         }
     }
 
@@ -129,10 +131,10 @@ public class EditActivity extends AppCompatActivity {
         // [END update_password]
     }*/
 
-    public void updateEmail(){
+    public void updateEmail(String email){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        user.updateEmail("renato.burgosh@usm.cl")
+        user.updateEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

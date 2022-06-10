@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.model.Pet;
 import com.example.myapplication.model.User;
 import com.example.myapplication.sql.*;
 import com.google.android.gms.maps.model.LatLng;
@@ -27,6 +28,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class SignInActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
@@ -83,7 +87,12 @@ public class SignInActivity extends AppCompatActivity {
                 String username_str = username.getText().toString();
                 String mail = email.getText().toString();
                 String pass = password.getText().toString();
-                user = new User(id + 1, mail, pass, username_str, -33.034705, -71.596523);
+                List<Pet> pets = new LinkedList<Pet>();
+                Pet pet1 = new Pet(0, "", "", null);
+                Pet pet2 = new Pet(1, "", "", null);
+                Pet pet3 = new Pet(2, "", "", null);
+                pets.add(pet1); pets.add(pet2); pets.add(pet3);
+                user = new User(id + 1, mail, pass, username_str, -33.034705, -71.596523, pets);
                 databaseHelper.addUser(user);
                 onRegister(mail, pass);
             }
@@ -109,8 +118,7 @@ public class SignInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "User successfully created", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            updateUI();
                             startActivity(new Intent(SignInActivity.this, LoginActivity.class));
                         }
                     }
@@ -123,7 +131,7 @@ public class SignInActivity extends AppCompatActivity {
         return m.matches();
     }
 
-    private void updateUI(FirebaseUser currentUser) {
+    private void updateUI() {
         String keyID = mDatabase.push().getKey();
         mDatabase.child(keyID).setValue(user);
     }

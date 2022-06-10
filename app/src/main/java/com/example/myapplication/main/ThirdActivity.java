@@ -88,13 +88,17 @@ public class ThirdActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Bundle data = getArguments();
+        if(data != null){
+            userIndex = data.getString("userIndex");
+        }
         View rootView = inflater.inflate(R.layout.activity_third, container, false);
         Button btnEx = (Button) rootView.findViewById(R.id.edit);
         btnEx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), EditActivity.class);
+                intent.putExtra("userIndex", userIndex);
                 startActivity(intent);
             }
         });
@@ -105,11 +109,6 @@ public class ThirdActivity extends Fragment {
                 deleteAccount();
             }
         });
-
-        Bundle data = getArguments();
-        if(data != null){
-            userIndex = data.getString("userIndex");
-        }
         return rootView;
     }
 
