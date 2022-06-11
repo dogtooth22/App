@@ -146,6 +146,7 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
             LocationListener locationListener = new LocationListener() {
                 @Override
                 public void onLocationChanged(@NonNull Location location) {
+                    //Log.i("location", location.getLatitude() + " " + location.getLongitude());
                     ref.child("user").child(userIndex).child("latitude").setValue(location.getLatitude());
                     ref.child("user").child(userIndex).child("longitude").setValue(location.getLongitude());
 
