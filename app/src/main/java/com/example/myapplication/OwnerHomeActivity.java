@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.myapplication.main.MainActivity;
-import com.example.myapplication.main.RiderMenu;
+import com.example.myapplication.main.WalkerMenu;
 import com.example.myapplication.main.SecondActivity;
 import com.example.myapplication.main.ThirdActivity;
 import com.google.android.gms.maps.GoogleMap;
@@ -144,7 +144,7 @@ public class OwnerHomeActivity extends AppCompatActivity implements GoogleMap.On
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
-        Intent intent = new Intent(this, RiderMenu.class);
+        Intent intent = new Intent(this, WalkerMenu.class);
         String message = marker.getId();
         intent.putExtra("Hola", message);
         startActivity(intent);

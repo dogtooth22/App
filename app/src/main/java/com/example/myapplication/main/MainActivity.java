@@ -10,7 +10,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -25,23 +24,22 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.myapplication.R;
-import com.example.myapplication.OwnerHomeActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,17 +49,13 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
         GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener,
         OnMapReadyCallback {
 
-    public static final String EXTRA_MESSAGE = "com.example.myapplication.MESSAGE";
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
-    GoogleMap mMap;
-    MapView mMapView;
-    View mView;
-    LocationManager locManager;
-    LocationListener locListener;
-    Location loc;
-    LatLng latLng;
-    List<Marker> markers;
-    private FirebaseDatabase database;
+    private int firstTime = 0;
+    private GoogleMap mMap;
+    private MapView mMapView;
+    private View mView;
+    private LatLng latLng;
+    private List<Marker> markers;
     private DatabaseReference ref;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -143,16 +137,38 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
             LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
             ref = FirebaseDatabase.getInstance().getReference();
+            Query lastQuery = ref.child("walker").orderByKey();
+            lastQuery.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    mMap.clear();
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        LatLng lugar = new LatLng(Double.parseDouble(child.child("latitude").getValue().toString()),
+                                Double.parseDouble(child.child("longitude").getValue().toString()));
+                        Marker marker;
+                        if(child.child("busy").getValue().toString().equals("1")){
+                            marker = mMap.addMarker(new MarkerOptions().position(lugar).
+                                    icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                        }
+                        else{
+                            marker = mMap.addMarker(new MarkerOptions().position(lugar).
+                                    icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                        }
+                        marker.setTag(child.getKey());
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Handle possible errors.
+                }
+            });
+
             LocationListener locationListener = new LocationListener() {
                 @Override
                 public void onLocationChanged(@NonNull Location location) {
-                    //Log.i("location", location.getLatitude() + " " + location.getLongitude());
                     ref.child("user").child(userIndex).child("latitude").setValue(location.getLatitude());
                     ref.child("user").child(userIndex).child("longitude").setValue(location.getLongitude());
-
-                        /*mMap.addMarker(new MarkerOptions()
-                                .position(lugar)
-                                .title("Marker in Sydney"));*/
                 }
 
                 public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -211,9 +227,9 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
 
     @Override
     public boolean onMarkerClick(final Marker marker) {
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        String message = marker.getId();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        Intent intent = new Intent(getActivity(), WalkerMenu.class);
+        String message = marker.getTag().toString();
+        intent.putExtra("walkerIndex", message);
         startActivity(intent);
 
         // Return false to indicate that we have not consumed the event and that we wish

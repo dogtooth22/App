@@ -3,10 +3,14 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.gps"/>
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/buddywalk_icons"
@@ -29,15 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--<activity
-            android:name=".main.MainActivity"
-            android:exported="true" >
-        </activity>
-        <activity
-            android:name=".main.SecondActivity"
-            android:exported="true"
-            android:label="@string/secundaria">
-        </activity>-->
         <activity
             android:name=".LoginActivity"
             android:exported="true"/>
@@ -49,6 +44,9 @@
             android:exported="true" />
         <activity
             android:name=".main.EditActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".main.WalkerMenu"
             android:exported="true"/>
     </application>
 

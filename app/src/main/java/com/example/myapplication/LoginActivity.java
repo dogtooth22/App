@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private Button loginButton;
     private FirebaseAuth mAuth;
-    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,10 +108,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-        //Verificar campos son validos
-
-        //Verificar valores de campos
 
         /*if(databaseHelper.checkUser(email.getText().toString().trim(), password.getText().toString().trim()))
         {

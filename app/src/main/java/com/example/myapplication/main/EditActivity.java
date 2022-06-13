@@ -139,7 +139,7 @@ public class EditActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d("Chao", "User email address updated.");
+                            Toast.makeText(EditActivity.this, "Account was successfully deleted!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

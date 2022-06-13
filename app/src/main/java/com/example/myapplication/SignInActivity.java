@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,12 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.model.Pet;
 import com.example.myapplication.model.User;
 import com.example.myapplication.sql.*;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,8 +44,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         registerButton = findViewById(R.id.register);
 
-        database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference("user");
+        mDatabase = FirebaseDatabase.getInstance().getReference("user");
         databaseHelper = new DatabaseHelper(SignInActivity.this);
         mAuth = FirebaseAuth.getInstance();
 
