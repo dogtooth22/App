@@ -26,8 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USER_PASSWORD = "user_password";
     private static final String COLUMN_USER_USERNAME = "user_username";
     private static final String COLUMN_USER_LATITUDE = "user_latitude";
-    private static final String COLUMN_USER_LONGITUDE = "user_longitude";
-    private static final String COLUMN_USER_PETS = "user_pets";
+    private static final String COLUMN_USER_LONGITUDE = "user_longitud";
 
     //SQL Queries
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "(" +
@@ -36,8 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             COLUMN_USER_EMAIL + " TEXT, " +
             COLUMN_USER_PASSWORD + " TEXT," +
             COLUMN_USER_LATITUDE + " TEXT," +
-            COLUMN_USER_LONGITUDE + " TEXT," +
-            COLUMN_USER_PETS + " TEXT" + ")";
+            COLUMN_USER_LONGITUDE + " TEXT" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
 
@@ -70,7 +68,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
         values.put(COLUMN_USER_LATITUDE, user.getLatitude());
         values.put(COLUMN_USER_LONGITUDE, user.getLongitude());
-        //values.put(COLUMN_USER_PETS, user.getPets());
         // Inserting Row
         db.insert(TABLE_USER, null, values);
         db.close();
@@ -90,7 +87,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_USER_PASSWORD,
                 COLUMN_USER_LATITUDE,
                 COLUMN_USER_LONGITUDE,
-                COLUMN_USER_PETS
         };
         // sorting orders
         String sortOrder =

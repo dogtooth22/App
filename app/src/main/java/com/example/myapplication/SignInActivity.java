@@ -36,6 +36,7 @@ public class SignInActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private Button registerButton;
     private User user;
+    private List<Pet> pets = new LinkedList<Pet>();
     private int id = 0;
 
     @Override
@@ -83,7 +84,7 @@ public class SignInActivity extends AppCompatActivity {
                 String username_str = username.getText().toString();
                 String mail = email.getText().toString();
                 String pass = password.getText().toString();
-                List<Pet> pets = new LinkedList<Pet>();
+
                 Pet pet1 = new Pet(0, "", "", null);
                 Pet pet2 = new Pet(1, "", "", null);
                 Pet pet3 = new Pet(2, "", "", null);
@@ -110,15 +111,15 @@ public class SignInActivity extends AppCompatActivity {
 
     private void onRegister(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "User successfully created", Toast.LENGTH_SHORT).show();
-                            updateUI();
-                            startActivity(new Intent(SignInActivity.this, LoginActivity.class));
-                        }
-                    }
-                });
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "User successfully created", Toast.LENGTH_SHORT).show();
+                    updateUI();
+                    startActivity(new Intent(SignInActivity.this, LoginActivity.class));
+                }
+            }
+        });
     }
     public boolean isValidEmailAddress(String email) {
         String ePattern = "^.+@.+\\..+$";

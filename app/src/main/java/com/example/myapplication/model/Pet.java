@@ -18,4 +18,9 @@ public class Pet {
         this.description = description;
         this.image = image;
     }
+
+    public int getId(){return id;}
+    public String getPetName(){return petName;}
+    public String getDescription(){return description;}
+    public ImageView getImage(){return image;}
 }
