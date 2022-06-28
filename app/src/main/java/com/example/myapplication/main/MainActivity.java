@@ -14,11 +14,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.myapplication.walker.WalkerMenu;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -38,7 +38,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -50,12 +49,10 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
         OnMapReadyCallback {
 
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
-    private int firstTime = 0;
     private GoogleMap mMap;
     private MapView mMapView;
     private View mView;
     private LatLng latLng;
-    private List<Marker> markers;
     private DatabaseReference ref;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -230,6 +227,7 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
         Intent intent = new Intent(getActivity(), WalkerMenu.class);
         String message = marker.getTag().toString();
         intent.putExtra("walkerIndex", message);
+        intent.putExtra("userIndex", userIndex);
         startActivity(intent);
 
         // Return false to indicate that we have not consumed the event and that we wish

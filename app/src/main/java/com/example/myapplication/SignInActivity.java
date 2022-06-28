@@ -32,12 +32,11 @@ import java.util.List;
 public class SignInActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase database;
     private DatabaseReference mDatabase;
     private Button registerButton;
     private User user;
+    private int id;
     private List<Pet> pets = new LinkedList<Pet>();
-    private int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +68,7 @@ public class SignInActivity extends AppCompatActivity {
         registerButton.setOnClickListener(view -> {
             EditText username = (EditText) findViewById(R.id.et_username);
             EditText email = (EditText) findViewById(R.id.et_email);
+            EditText telephone = (EditText) findViewById(R.id.et_phone);
             EditText password = (EditText) findViewById(R.id.et_password);
             EditText password2 = (EditText) findViewById(R.id.et_confirmpass);
 
@@ -83,13 +83,14 @@ public class SignInActivity extends AppCompatActivity {
             else {
                 String username_str = username.getText().toString();
                 String mail = email.getText().toString();
+                String phone = telephone.getText().toString();
                 String pass = password.getText().toString();
 
                 Pet pet1 = new Pet(0, "", "", null);
                 Pet pet2 = new Pet(1, "", "", null);
                 Pet pet3 = new Pet(2, "", "", null);
                 pets.add(pet1); pets.add(pet2); pets.add(pet3);
-                user = new User(id + 1, mail, pass, username_str, -33.034705, -71.596523, pets);
+                user = new User(id + 1, mail, phone, pass, username_str, -33.034705, -71.596523, pets);
                 databaseHelper.addUser(user);
                 onRegister(mail, pass);
             }

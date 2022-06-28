@@ -5,6 +5,7 @@ import java.util.List;
 public class User {
     private int id;
     private String email;
+    private String phone;
     private String password;
     private String username;
     private double lat;
@@ -20,9 +21,10 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String email, String password, String username, double lat, double lon, List<Pet> pets){
+    public User(int id, String email, String phone, String password, String username, double lat, double lon, List<Pet> pets){
         this.id = id;
         this.email = email;
+        this.phone = phone;
         this.password = password;
         this.username = username;
         this.lat = lat;
@@ -30,15 +32,9 @@ public class User {
         this.pets = pets;
     }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getUsername(){
-        return username;
-    }
+    public int getId() {return id;}
+    public void setId(int id) {this.id = id;}
+    public String getUsername(){return username;}
     public void setUsername(String username){
         this.username = username;
     }
@@ -48,6 +44,8 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getPhone() {return phone;}
+    public void setPhone(String phone) {this.phone = phone;}
     public String getPassword() {
         return password;
     }

@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.myapplication.main.MainActivity;
-import com.example.myapplication.main.WalkerMenu;
+import com.example.myapplication.walker.WalkerMenu;
 import com.example.myapplication.main.SecondActivity;
 import com.example.myapplication.main.ThirdActivity;
 import com.google.android.gms.maps.GoogleMap;

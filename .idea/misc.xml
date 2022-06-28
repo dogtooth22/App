@@ -14,10 +14,14 @@
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/buddywalk.xml" value="0.3515" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/buddywalk_icons_background.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/buddywalk_icons_foreground.xml" value="0.111" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/call.xml" value="0.1" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/comment-48px.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/email.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/google_logo.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/ic_baseline_my_location_24.xml" value="0.343" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/ic_edit.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1455" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/ic_send.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/lock.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/login_wave.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/person.xml" value="0.2475" />
@@ -26,16 +30,19 @@
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/round_button_google.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/round_inputs.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/drawable/splash_background.xml" value="0.1455" />
-        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_edit.xml" value="0.1" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_edit.xml" value="0.18" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_maps.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_owner_home.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_second.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_third.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/activity_walk_rider_home.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/message.xml" value="0.16874135546334718" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/second_activity.xml" value="0.25" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/send_location.xml" value="0.14" />
+        <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/layout/walker_menu.xml" value="0.1" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/menu/home_navigator.xml" value="0.2" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/mipmap-anydpi-v26/buddywalk_icons_round.xml" value="0.111" />
         <entry key="..\:/Users/natob/AndroidStudioProjects/App/app/src/main/res/mipmap-xxhdpi/buddywalk_icons.xml" value="0.111" />
