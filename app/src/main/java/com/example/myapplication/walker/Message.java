@@ -27,7 +27,8 @@ public class Message extends AppCompatActivity {
     private String userIndex;
     private String walkerIndex;
     private DatabaseReference ref;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabaseUser;
+    private DatabaseReference mDatabaseWalker;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -47,14 +48,18 @@ public class Message extends AppCompatActivity {
         EditText messageText = (EditText) findViewById(R.id.messageET);
         String message = messageText.getText().toString();
 
-        Notification notification = new Notification(user, message, lan, lon);
+        Notification notificationUser = new Notification(2, walker, message, lan, lon);
+        Notification notificationWalker = new Notification(2, user, message, lan, lon);
         List<Notification> notifications = new LinkedList<Notification>();
-        notifications.add(notification);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("walker").
+        mDatabaseWalker = FirebaseDatabase.getInstance().getReference("walker").
                 child(walker).child("notifications");
-        String keyNotification = mDatabase.push().getKey();
-        mDatabase.child(keyNotification).setValue(notification);
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference("user").
+                child(user).child("notifications");
+        String keyNotification = mDatabaseWalker.push().getKey();
+
+        mDatabaseUser.child(keyNotification).setValue(notificationUser);
+        mDatabaseWalker.child(keyNotification).setValue(notificationWalker);
         goBack(user);
     }
 

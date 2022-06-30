@@ -51,6 +51,7 @@ public class OwnerHomeActivity extends AppCompatActivity implements GoogleMap.On
         Bundle bundle = new Bundle();
         bundle.putString("userIndex", userIndex);
         firstActivity.setArguments(bundle);
+        secondActivity.setArguments(bundle);
         thirdActivity.setArguments(bundle);
 
         BottomNavigationView navigation = findViewById(R.id.home_navigator);

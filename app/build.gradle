@@ -31,6 +31,7 @@ android {
         viewBinding true
     }
     namespace 'com.example.myapplication'
+    buildToolsVersion '32.1.0 rc1'
 }
 
 dependencies {

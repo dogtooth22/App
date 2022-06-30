@@ -29,6 +29,8 @@ public class WalkerMenu extends AppCompatActivity {
     private double latitude;
     private double longitude;
 
+    //TODO hay que controlar la logica cuando está ocupado y que quede bonito
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -57,7 +59,6 @@ public class WalkerMenu extends AppCompatActivity {
         });
 
         callButton.setOnClickListener(view -> {
-            Log.i("Hola", walkerPhone);
             Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", walkerPhone, null));
             startActivity(phoneCall);
         });

@@ -3,25 +3,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentContainer.FirstFragment">
-
+    tools:context=".main.SecondActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:padding="10dp"
-            android:text="" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/md_theme_light_primary"
+            android:padding="10dp">
 
-        <TextView
-            android:padding="10dp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Walk History"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="50dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Colocar aqui los ultimos paseos realizados"/>
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="8"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:text="Current Walk"
+                android:layout_marginBottom="10dp">
+            </Button>
+            <Button
+                android:id="@+id/pending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:text="Pending Notifications"
+                android:layout_marginBottom="10dp">
+            </Button>
+            <Button
+                android:id="@+id/done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:text="Done Notifications">
+            </Button>
+        </LinearLayout>
+
 
     </LinearLayout>
 

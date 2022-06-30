@@ -18,6 +18,8 @@
     <string name="changes">Apply changes</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
+    <string name="sure">Are you sure?</string>
+    <string name="yes">Yes</string>
     <string name="call">Call</string>
     <string name="pass">Password</string>
     <string name="passConfirm">Confirm Password</string>
@@ -39,4 +41,5 @@
     <string name="frame1">Paseos</string>
     <string name="frame2">Home</string>
     <string name="frame3">Preferencias</string>
+    <string name="confirm">Confirm</string>
 </resources>

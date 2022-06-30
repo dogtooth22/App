@@ -145,11 +145,11 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
                         Marker marker;
                         if(child.child("busy").getValue().toString().equals("1")){
                             marker = mMap.addMarker(new MarkerOptions().position(lugar).
-                                    icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                                    icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                         }
                         else{
                             marker = mMap.addMarker(new MarkerOptions().position(lugar).
-                                    icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                                    icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                         }
                         marker.setTag(child.getKey());
                     }

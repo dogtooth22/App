@@ -51,6 +51,19 @@
         <activity
             android:name=".walker.Message"
             android:exported="true"/>
+        <activity
+            android:name=".notifications.DoneNotifications"
+            android:exported="true"/>
+        <activity
+            android:name=".notifications.NotificationPage"
+            android:exported="true"/>
+        <activity
+            android:name=".notifications.PendingNotifications"
+            android:exported="true"/>
+        <activity
+            android:name=".notifications.CurrentWalk"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
