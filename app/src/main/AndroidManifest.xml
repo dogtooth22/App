@@ -63,6 +63,9 @@
         <activity
             android:name=".notifications.CurrentWalk"
             android:exported="true"/>
+        <activity
+            android:name=".notifications.NullActivity"
+            android:exported="true"/>
 
     </application>
 

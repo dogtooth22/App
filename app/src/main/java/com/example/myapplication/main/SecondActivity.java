@@ -15,6 +15,7 @@ import android.widget.Button;
 
 import com.example.myapplication.notifications.CurrentWalk;
 import com.example.myapplication.notifications.DoneNotifications;
+import com.example.myapplication.notifications.NullActivity;
 import com.example.myapplication.notifications.PendingNotifications;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -106,13 +107,19 @@ public class SecondActivity extends Fragment{
             @Override
             public void onClick(View view) {
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("user");
-                databaseReference.addValueEventListener(new ValueEventListener() {
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        Intent intent = new Intent(getActivity(), CurrentWalk.class);
-                        intent.putExtra("userIndex", userIndex);
-                        intent.putExtra("notification", (String) dataSnapshot.child(userIndex).child("current").getValue());
-                        startActivity(intent);
+                        if(dataSnapshot.child(userIndex).child("current").getValue() != null){
+                            Intent intent = new Intent(getActivity(), CurrentWalk.class);
+                            intent.putExtra("userIndex", userIndex);
+                            intent.putExtra("notification", (String) dataSnapshot.child(userIndex).child("current").getValue());
+                            startActivity(intent);
+                        }
+                        else{
+                            Intent nullActivity = new Intent(getActivity(), NullActivity.class);
+                            startActivity(nullActivity);
+                        }
                     }
 
                     @Override
