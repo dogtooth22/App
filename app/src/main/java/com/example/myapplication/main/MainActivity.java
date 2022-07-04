@@ -197,7 +197,7 @@ public class MainActivity extends Fragment implements GoogleMap.OnMyLocationButt
         /*
         if(checkPermission()) {
             //mGoogleMap.setMyLocationEnabled(true);
-            // Showing the current location in Google Map
+            // Showing the Log.int location in Google Map
         }
         */
         CameraPosition USM = CameraPosition.builder().target(latLng).zoom(16).build();

@@ -97,9 +97,6 @@ public class CurrentWalk extends AppCompatActivity implements GoogleMap.OnMyLoca
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     lugar = new LatLng(Double.parseDouble(dataSnapshot.child("latitude").getValue().toString()),
                             Double.parseDouble(dataSnapshot.child("longitude").getValue().toString()));
-                    Marker marker = map.addMarker(new MarkerOptions().position(lugar)
-                            .title("Your meetup location!"));
-                    marker.showInfoWindow();
                     CameraPosition USM = CameraPosition.builder().target(lugar).zoom(16).build();
                     map.moveCamera(CameraUpdateFactory.newCameraPosition(USM));
                     walkerIndex = String.valueOf(dataSnapshot.child("userIndex").getValue());
@@ -111,8 +108,12 @@ public class CurrentWalk extends AppCompatActivity implements GoogleMap.OnMyLoca
                             map.clear();
                             LatLng markerLocation = new LatLng(Double.parseDouble(snapshot.child("latitude").getValue().toString()),
                                     Double.parseDouble(snapshot.child("longitude").getValue().toString()));
-                            Marker markerMoving = map.addMarker(new MarkerOptions().position(markerLocation).
+                            Marker markerMoving = map.addMarker(new MarkerOptions().position(markerLocation).title("Your walker is here!").
                                     icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                            Marker marker = map.addMarker(new MarkerOptions().position(lugar)
+                                    .title("Your meetup location!"));
+                            markerMoving.showInfoWindow();
+                            marker.showInfoWindow();
                             userPhone = String.valueOf(snapshot.child("phone").getValue());
                         }
 
