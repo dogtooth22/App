@@ -5,6 +5,10 @@
     <string name="login_title_view">Already Have an Account?</string>
     <string name="register_message">Don\'t Have an Account?</string>
 
+    <!--Error Toast Messages-->
+    <string name="credential_error">Email or password format are incorrect</string>
+    <string name="incomplete_form">One or more inputs are empty. Please complete to continues</string>
+
     <!--Titles-->
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -32,8 +36,11 @@
     <string name="new_user">New User?</string>
     <string name="register_now">Register Now</string>
     <string name="next">Continue</string>
+    <string name="back">Back</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

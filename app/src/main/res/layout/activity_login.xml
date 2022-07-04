@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Presentation.LoginActivity">
+    tools:context=".Login.LoginActivityController">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -97,6 +97,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/email"
                 android:background="@drawable/round_inputs"
                 android:paddingLeft="16dp"
                 android:layout_marginLeft="24dp"
@@ -110,6 +111,7 @@
                 android:layout_weight="1" />
 
             <EditText
+                android:id="@+id/pass"
                 android:background="@drawable/round_inputs"
                 android:paddingLeft="16dp"
                 android:layout_marginTop="24dp"
@@ -131,6 +133,8 @@
             android:layout_weight="0.6"
             android:orientation="vertical">
             <Button
+                android:id="@+id/login_button"
+                android:onClick="loginUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -170,6 +174,7 @@
             </TextView>
 
             <Button
+                android:id="@+id/google_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -199,7 +204,7 @@
                     android:text="@string/new_user">
                 </TextView>
                 <TextView
-                    android:onClick="toRegister"
+                    android:onClick="registerUser"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_theme_light_primary"
@@ -212,8 +217,16 @@
                 </TextView>
             </LinearLayout>
 
-
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
         </LinearLayout>
+
+
 
     </LinearLayout>
 </LinearLayout>

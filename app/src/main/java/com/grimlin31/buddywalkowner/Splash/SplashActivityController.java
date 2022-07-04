@@ -1,33 +1,41 @@
-package com.grimlin31.buddywalkowner.Presentation;
+package com.grimlin31.buddywalkowner.Splash;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.grimlin31.buddywalkowner.R;
-import com.grimlin31.buddywalkowner.parentClass.BuddyWalkerAppCompactActivity;
+import com.grimlin31.buddywalkowner.Main.BuddyWalkerAppCompactActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SplashView extends BuddyWalkerAppCompactActivity {
+public class SplashActivityController
+        extends BuddyWalkerAppCompactActivity
+        implements SplashContract.ActivityController {
+
+    private SplashContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        presenter = new SplashPresenter(this);
+
+        loadAnimation();
+
+    }
+
+    public void loadAnimation() {
+
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashView.this, LoginActivity.class);
-                startActivity(intent);
+                presenter.onFinishAnimation();
                 finish();
             }
-
         };
 
         Timer time = new Timer();
         time.schedule(task, 5000);
-
     }
 }

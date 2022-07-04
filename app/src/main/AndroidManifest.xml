@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuddyWalkOwner">
         <activity
-            android:name=".Presentation.SplashView"
+            android:name=".Main.BuddyWalkerOwnerMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presentation.LoginActivity"/>
-        <activity android:name=".register.UserForm"/>
-        <activity android:name=".register.RegisterActivity"/>
+        <activity android:name=".Splash.SplashActivityController" />
+        <activity android:name=".Login.LoginActivityController"/>
+        <activity android:name=".FormRegister.FormRegisterActivityController"/>
     </application>
 
 </manifest>
