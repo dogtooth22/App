@@ -19,9 +19,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class WalkerMenu extends AppCompatActivity {
-    private TextView walkerInfo;
+    private TextView walkerInfoName;
+    private TextView walkerInfoEmail;
+    private TextView walkerInfoNumber;
     private String walkerIndex;
     private String userIndex;
+    private String walkerMail;
     private String userName;
     private String walkerPhone;
     private Button locationButton;
@@ -38,6 +41,10 @@ public class WalkerMenu extends AppCompatActivity {
         callButton = (Button) findViewById(R.id.call);
         locationButton = (Button) findViewById(R.id.markLocation);
 
+        walkerInfoName = (TextView) findViewById(R.id.name_rider);
+        walkerInfoEmail = (TextView) findViewById(R.id.email_rider);
+        walkerInfoNumber = (TextView) findViewById(R.id.number_rider);
+
         Intent intent = getIntent();
         walkerIndex = intent.getStringExtra("walkerIndex");
         userIndex = intent.getStringExtra("userIndex");
@@ -46,10 +53,17 @@ public class WalkerMenu extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                userName = String.valueOf(dataSnapshot.child(walkerIndex).child("username").getValue());
-                walkerPhone = String.valueOf(dataSnapshot.child(walkerIndex).child("phone").getValue());
-                latitude = (double) dataSnapshot.child(walkerIndex).child("latitude").getValue();
-                longitude = (double) dataSnapshot.child(walkerIndex).child("longitude").getValue();
+                if (dataSnapshot.exists()) {
+                    userName = String.valueOf(dataSnapshot.child(walkerIndex).child("username").getValue());
+                    walkerPhone = String.valueOf(dataSnapshot.child(walkerIndex).child("phone").getValue());
+                    walkerMail = String.valueOf(dataSnapshot.child(walkerIndex).child("email").getValue());
+                    latitude = (double) dataSnapshot.child(walkerIndex).child("latitude").getValue();
+                    longitude = (double) dataSnapshot.child(walkerIndex).child("longitude").getValue();
+
+                    walkerInfoName.setText(userName);
+                    walkerInfoEmail.setText(walkerMail);
+                    walkerInfoNumber.setText(walkerPhone);
+                }
             }
 
             @Override
@@ -71,6 +85,8 @@ public class WalkerMenu extends AppCompatActivity {
             locationPage.putExtra("longitude", longitude);
             startActivity(locationPage);
         });
+
+
 
     }
 }
